@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="nav">
+                <h1>Hello {{user.first_name}} {{user.last_name}}</h1>
+                <a href="/logout">Logout</a>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Price</th>
+                        <th>Description</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for show in art %}
+                        <tr>
+                            <td>{{show.title}}</td>
+                            <td>{{show.price}}</td>
+                            <td>{{show.description}}</td>
+                            <td> <a href="/show/{{show.id}}/delete">Delete</a> | <a href="/show/{{show.id}}/edit">edit</a> | <a href="#">art</a></td>
+                        </tr>
+                    {%endfor%}
+                </tbody>
+            </table>
+            <a href="/new">Add New Art</a>
+        </div>
+    </div>
+</body>
+</html>
